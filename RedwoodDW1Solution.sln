@@ -10,6 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Documents", "Solut
 		Solution Documents\RedwoodDW1_InformationPackage.docx = Solution Documents\RedwoodDW1_InformationPackage.docx
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedwoodDW1 DaysOnMarket", "RedwoodDW1 DaysOnMarket", "{77DD4EE2-AC72-4E14-94C7-EF01B82F8D98}"
+	ProjectSection(SolutionItems) = preProject
+		RedwoodDW1 DaysOnMarket\Build_RedwoodDW1.sql = RedwoodDW1 DaysOnMarket\Build_RedwoodDW1.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
