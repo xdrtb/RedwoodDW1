@@ -1,3 +1,5 @@
+--Cretaed by Stef Tudor, Micheal Atkins, Mifguel Gerov
+--Build RedwoodDW1
 USE master
 GO
 -- Check if RedwoodDW1 exists, if it does not create the database RedwoodDW1
@@ -28,6 +30,7 @@ IF EXISTS(
 	WHERE name = N'DimProperty'
 )
 DROP TABLE DimProperty;
+--
 -- Create tables
 CREATE TABLE DimProperty (
 	Property_SK INT IDENTITY (1,1) CONSTRAINT pk_propertySK PRIMARY KEY,
@@ -62,7 +65,7 @@ CREATE TABLE DimDate (
 	[Year] INT NOT NULL
 );
 CREATE TABLE FactDaysOnMarket (
-	DaysOnMarket_SK INT IDENTITY (1,1) CONSTRAINT pk_DaysOnMarketSK PRIMARY KEY,
+	FactID INT IDENTITY (1,1) CONSTRAINT pk_FactID PRIMARY KEY,
 	Property_SK INT CONSTRAINT fk_Property_DimProperty FOREIGN KEY REFERENCES DimProperty(Property_SK),
 	Agent_SK INT CONSTRAINT fk_Agent_DimAgent FOREIGN KEY REFERENCES DimAgent(Agent_SK),
 	ContactDate INT CONSTRAINT fk_ContactDate_DimDate FOREIGN KEY REFERENCES DimDate(Date_SK),
