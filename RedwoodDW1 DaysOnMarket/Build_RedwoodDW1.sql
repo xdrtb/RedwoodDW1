@@ -55,15 +55,17 @@ CREATE TABLE DimAgent (
 	HireDate DATETIME NOT NULL
 );
 CREATE TABLE DimDate (
-	Date_SK INT IDENTITY(1,1) CONSTRAINT pk_dateSK PRIMARY KEY,
-	[Date] DATETIME NOT NULL UNIQUE,
-	[DateName] NVARCHAR(50) NULL,
-	[Month] INT NOT NULL,
-	[MonthName] NVARCHAR(50) NOT NULL,
-	[Quarter] INT NOT NULL,
-	QuarterName NVARCHAR(50) NOT NULL,
-	[Year] INT NOT NULL
-);
+	Date_SK INT CONSTRAINT pk_dateSK PRIMARY KEY,
+	Date DATETIME,
+	FullDate CHAR(10),-- Date in MM-dd-yyyy format
+	Month INT, -- Number of the Month 1 to 12{}
+	MonthName VARCHAR(9),-- January, February etc
+	Quarter CHAR(2),
+	Year INT,-- Year value of Date stored in Row
+	MonthYear CHAR(10), -- Jan-2016,Feb-2016
+	MMYYYY INT,
+	Season VARCHAR(10)--Name of Season
+	);
 CREATE TABLE FactDaysOnMarket (
 	FactID INT IDENTITY (1,1) CONSTRAINT pk_FactID PRIMARY KEY,
 	Property_SK INT CONSTRAINT fk_Property_DimProperty FOREIGN KEY REFERENCES DimProperty(Property_SK),
