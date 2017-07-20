@@ -11,7 +11,8 @@ SELECT
 	p.Bedrooms,
 	p.Bathrooms,
 	p.Stories,
-	p.YearBuilt
+	p.YearBuilt,
+	l.EndListDate
 FROM Redwood.dbo.Property AS p
 INNER JOIN Redwood.dbo.Listing AS l
 	ON p.PropertyID = l.PropertyID
