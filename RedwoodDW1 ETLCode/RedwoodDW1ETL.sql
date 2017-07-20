@@ -19,7 +19,7 @@ INNER JOIN Redwood.dbo.Listing AS l
 LEFT OUTER JOIN Redwood.dbo.SaleStatus AS s
 	ON l.SaleStatusID = s.SaleStatusID
 GO
-************************************************
+/************************************************/
 -- Get source data from Redwood.dbo.Agent
 -- Used with Data Flow Task "Fill DimAgent"
 SELECT
@@ -30,7 +30,7 @@ SELECT
 	a.BirthDate
 FROM Redwood.dbo.Agent AS a
 GO
-******************************************************
+/******************************************************/
 -- Load data for DimDate
 -- Used with Data Flow Task "Fill DimDate"
 -- Load a Date Dimension (DimDate) adapted by Amy Phillips
@@ -147,7 +147,7 @@ BEGIN
 	SET @CurrentDate = DATEADD(DD, 1, @CurrentDate)
 END
 ;
-*************************************************************************
+/*************************************************************************/
 -- Get source data from Redwood.dbo.CustAgentList and others
 -- Used with Data Flow Task "Fill FactDaysOnMarket"
 SELECT
