@@ -44,7 +44,10 @@ CREATE TABLE DimProperty (
 	Bedrooms INT NOT NULL,
 	Bathrooms INT NOT NULL,
 	Stories INT NOT NULL,
-	YearBuilt NUMERIC(4,0) NOT NULL
+	YearBuilt NUMERIC(4,0) NOT NULL,
+	EndListDate DATETIME NOT NULL,
+	PropertyStartDate DATETIME,
+	PropertyEndDate DATETIME
 );
 CREATE TABLE DimAgent (
 	Agent_SK INT IDENTITY (1,1) CONSTRAINT pk_agentSK PRIMARY KEY,
