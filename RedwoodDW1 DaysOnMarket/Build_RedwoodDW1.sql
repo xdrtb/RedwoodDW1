@@ -1,4 +1,4 @@
---Cretaed by Stef Tudor, Micheal Atkins, Mifguel Gerov
+--Cretaed by Stef Tudor, Michael Atkins, Miguel Gerov
 --Build RedwoodDW1
 USE master
 GO
