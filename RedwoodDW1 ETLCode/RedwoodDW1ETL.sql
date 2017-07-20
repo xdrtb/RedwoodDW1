@@ -1,7 +1,7 @@
 -- Get source data from Redwood.dbo.Property
 -- Used with Data Flow Task "Fill DimProperty"
 SELECT 
-	PropertyID_AK = dbo.Property.PropertyID,
+	dbo.Property.PropertyID,
 	dbo.SaleStatus.SaleStatus,
 	dbo.Property.City,
 	dbo.Property.ZipCode,
@@ -22,7 +22,7 @@ GO
 -- Get source data from Redwood.dbo.Agent
 -- Used with Data Flow Task "Fill DimAgent"
 SELECT
-	AgentID_AK = dbo.Agent.AgentID,
+	dbo.Agent.AgentID,
 	dbo.Agent.Title,
 	dbo.Agent.HireDate,
 	dbo.Agent.Gender,
