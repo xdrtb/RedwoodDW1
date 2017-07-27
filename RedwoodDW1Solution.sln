@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedwoodDW1 DaysOnMarket", "
 EndProject
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Redwood1ETL", "Redwood1ETL\Redwood1ETL.dtproj", "{3C190F28-F4AB-40DE-9C36-20E99E6BC622}"
 EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Redwood1SSAS", "Redwood1SSAS\Redwood1SSAS.dwproj", "{7E831D5F-7720-4F68-8341-6638597B6BDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
@@ -24,6 +26,9 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3C190F28-F4AB-40DE-9C36-20E99E6BC622}.Development|Default.ActiveCfg = Development
 		{3C190F28-F4AB-40DE-9C36-20E99E6BC622}.Development|Default.Build.0 = Development
+		{7E831D5F-7720-4F68-8341-6638597B6BDF}.Development|Default.ActiveCfg = Development
+		{7E831D5F-7720-4F68-8341-6638597B6BDF}.Development|Default.Build.0 = Development
+		{7E831D5F-7720-4F68-8341-6638597B6BDF}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
