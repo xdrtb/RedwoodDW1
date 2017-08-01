@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2170" scrolltop="-4288" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="11139" y="21696" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2170" scrolltop="-4288" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="6615" y="13441" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -165,6 +165,10 @@
         <AttributeRelationship dwd:design-time-name="5bb02bdd-7270-444a-baeb-070ad270eb0c">
           <AttributeID>Year Built</AttributeID>
           <Name>Year Built</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="508d6b33-0bfc-4833-aad6-e4a850050d2c">
+          <AttributeID>End List Date</AttributeID>
+          <Name>End List Date</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -348,6 +352,21 @@
           <Source xsi:type="ColumnBinding" dwd:design-time-name="7fa27de3-51f3-47dc-b6be-f10096fec326">
             <TableID>dbo_DimProperty</TableID>
             <ColumnID>YearBuilt</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0d9dbf05-3740-4da7-8b26-2a4b676b4bdb">
+      <ID>End List Date</ID>
+      <Name>End List Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c235171c-265d-456e-886b-55593f5d1299">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="25b5b563-36ea-4ee1-84fa-f9a0b8927fae">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>EndListDate</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>

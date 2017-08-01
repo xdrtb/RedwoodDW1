@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL For Redwood1"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{102922F5-A962-4436-BAB5-6D63DC8D3D5B}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{1A89292E-1EB7-4E95-924B-17316A37DF93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2845,8 +2845,8 @@ LEFT OUTER JOIN Redwood.dbo.SaleStatus AS s
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
 	DimProperty.Property_SK,
 	DimAgent.Agent_SK,
-	ContactDate = DimDate.Date_SK,
-	BeginListDate = DimDate.Date_SK,
+	ContactDate = DT1.Date_SK,
+	BeginListDate = DT2.Date_SK,
 	Redwood.dbo.Listing.AskingPrice,
 	Redwood.dbo.CustAgentList.BidPrice
 FROM Redwood.dbo.CustAgentList
@@ -2858,8 +2858,11 @@ INNER JOIN DimProperty
 	ON DimProperty.PropertyID_AK = Redwood.dbo.Property.PropertyID
 INNER JOIN DimAgent
 	ON DimAgent.AgentID_AK = Redwood.dbo.CustAgentList.AgentID
-INNER JOIN DimDate
-	ON DimDate.Date = Redwood.dbo.CustAgentList.ContactDate</property>
+INNER JOIN DimDate AS DT1
+	ON DT1.Date = Redwood.dbo.CustAgentList.ContactDate
+INNER JOIN DimDate AS DT2
+ON DT2.Date = Redwood.dbo.Listing.BeginListDate
+WHERE Redwood.dbo.CustAgentList.BidPrice IS NOT NULL;</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -3086,15 +3089,15 @@ INNER JOIN DimDate
           Id="Package\ETL Process"
           TopLeft="342.857148695965,20.9747902101299" />
         <NodeLayout
-          Size="150.5,41.5"
+          Size="150,42"
           Id="Package\Load Dim Tables\Load DimAgent"
           TopLeft="46.7102104765335,201.673955217966" />
         <NodeLayout
-          Size="145,41.5"
+          Size="145,42"
           Id="Package\Load Dim Tables\Load DimDate"
           TopLeft="53.8449049796725,22.0168109022623" />
         <NodeLayout
-          Size="162.5,41.5"
+          Size="162,42"
           Id="Package\Load Dim Tables\Load DimProperty"
           TopLeft="44.2612308429909,104.396643570444" />
         <EdgeLayout
@@ -3148,19 +3151,19 @@ INNER JOIN DimDate
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="270.5,298.5"
-          Size="270.5,341.5"
+          PanelSize="270,299"
+          Size="270,342"
           Id="Package\Load Dim Tables"
           TopLeft="328.979597439224,243.83193619276" />
         <NodeLayout
-          Size="193,41.5"
+          Size="193,42"
           Id="Package\Load Fact Table\Load FactDaysOnMarket"
           TopLeft="34.3347006339027,24.6722735651518" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="254.5,122"
-          Size="254.5,165"
+          PanelSize="254,122"
+          Size="254,165"
           Id="Package\Load Fact Table"
           TopLeft="362.448985764306,660.705888493605" />
         <EdgeLayout
@@ -3804,11 +3807,11 @@ INNER JOIN DimDate
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149.5,41.5"
+          Size="150,42"
           Id="Package\Load Fact Table\Load FactDaysOnMarket\OLE DB Source"
           TopLeft="384.8,13.6" />
         <NodeLayout
-          Size="170.5,41.5"
+          Size="170,42"
           Id="Package\Load Fact Table\Load FactDaysOnMarket\OLE DB Destination"
           TopLeft="382.4,140.8" />
         <EdgeLayout
