@@ -8,9 +8,9 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2170" scrolltop="-4288" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8030" y="14288" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2170" scrolltop="-4288" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="11139" y="21696" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
-              <ddsxmlobjectstreamwrapper binary="0100000090019e330100065461686f6d61" />
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
             <mouseicon>
               <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
@@ -19,7 +19,7 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimProperty" left="99" top="-2275" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3201" height="8479" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DimProperty" left="99" top="-2275" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3201" height="8479" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="000c0000810c00001f210000" />
             </control>
@@ -65,6 +65,46 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
       <Value>100</Value>
     </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="121">
+            <Shape Id="Property SK" Expanded="false">
+              <Attributes>
+                <Attribute Id="Property SK" />
+                <Attribute Id="Bathrooms" />
+                <Attribute Id="Bedrooms" />
+                <Attribute Id="Lot Size" />
+                <Attribute Id="Sale Status" />
+                <Attribute Id="Sq Ft" />
+                <Attribute Id="Stories" />
+                <Attribute Id="Year Built" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Address" Expanded="false">
+              <Attributes>
+                <Attribute Id="Address" />
+              </Attributes>
+              <Position x="176" y="20" />
+            </Shape>
+            <Shape Id="Zip Code" Expanded="false">
+              <Attributes>
+                <Attribute Id="Zip Code" />
+              </Attributes>
+              <Position x="332" y="20" />
+            </Shape>
+            <Shape Id="City" Expanded="false">
+              <Attributes>
+                <Attribute Id="City" />
+              </Attributes>
+              <Position x="488" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
   </Annotations>
   <LastProcessed>0001-01-01T07:00:00Z</LastProcessed>
   <State>Unprocessed</State>
@@ -81,7 +121,7 @@
   <Attributes>
     <Attribute dwd:design-time-name="686222f5-3255-44fb-bef7-c916708fa046">
       <ID>Property SK</ID>
-      <Name>Property SK</Name>
+      <Name>Property ID</Name>
       <Usage>Key</Usage>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="d48ffb1d-e6d5-413d-8d32-45d69767394d">
@@ -93,10 +133,255 @@
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="31cf4895-7c91-46f3-b5a3-6018d5743ebd">
+          <AttributeID>Sale Status</AttributeID>
+          <Name>Sale Status</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="792c5158-2079-4704-84a1-fa9ac0a5d7ea">
+          <AttributeID>Address</AttributeID>
+          <Name>Address</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5ac21b9d-01ba-458c-960f-8f42f7edc6e0">
+          <AttributeID>Lot Size</AttributeID>
+          <Name>Lot Size</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f17c176d-43be-4b6e-964a-0e95664bfd04">
+          <AttributeID>Sq Ft</AttributeID>
+          <Name>Sq Ft</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e2b93c93-c019-48ba-bd47-a3e0107b7ec2">
+          <AttributeID>Bedrooms</AttributeID>
+          <Name>Bedrooms</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="eedbdcea-3c04-4b3a-8c3c-b0b5e1d8692a">
+          <AttributeID>Bathrooms</AttributeID>
+          <Name>Bathrooms</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e7cb9958-3c97-4b2f-a55f-454ed59c8fe3">
+          <AttributeID>Stories</AttributeID>
+          <Name>Stories</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5bb02bdd-7270-444a-baeb-070ad270eb0c">
+          <AttributeID>Year Built</AttributeID>
+          <Name>Year Built</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
+    <Attribute dwd:design-time-name="bb23ea6d-513d-4851-a8f3-5ce3f09c5fa4">
+      <ID>Sale Status</ID>
+      <Name>Sale Status</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="89f0d28b-a0ae-40b3-9e35-d76fbecfa89a">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9ac2e65a-69c6-4214-9a89-3820677dfc25">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>SaleStatus</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dc64cba1-1fb2-4f9b-9cfd-6483af6f2512">
+      <ID>City</ID>
+      <Name>City</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8ec21968-83e0-4673-937b-5f30bbd80f43">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="17b30646-64fe-4f80-bdaa-5eb8f5c66275">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>City</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="617c2671-c50a-4c3b-a6f2-600ce6513c9a">
+      <ID>Zip Code</ID>
+      <Name>Zip Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="02be935a-0335-4495-b933-483657b76b49">
+          <DataType>WChar</DataType>
+          <DataSize>20</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="41969080-1fe6-430b-9ace-09061bf830f4">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>ZipCode</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="ac249d4f-32ac-45a1-ad22-95bd9bdd78b7">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="79321183-27d2-4f36-a8d5-0a3f3d35f2a7">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>Address</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d500cbf8-f23d-439f-b236-db81f65d70b3">
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="cdc6ef00-9398-45d3-9932-4f3e6fa283e9">
+          <TableID>dbo_DimProperty</TableID>
+          <ColumnID>ZipCode</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="58ccb36c-fea8-4a1e-85ba-3a7e2ea82757">
+          <AttributeID>City</AttributeID>
+          <RelationshipType>Rigid</RelationshipType>
+          <Name>City</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3439f405-7010-43bb-8580-5bf292578cca">
+      <ID>Address</ID>
+      <Name>Address</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="211b0999-0d2d-4bce-a27b-1e07dd4dbde9">
+          <DataType>WChar</DataType>
+          <DataSize>30</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e479881a-c68e-489d-9124-8000a132c65c">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>Address</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="9e8b1b9a-fd81-45ae-a3e4-8ae2de6a2258">
+          <AttributeID>Zip Code</AttributeID>
+          <Name>Zip Code</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="21a9ba55-dfa4-4028-a3f7-13a7609fea59">
+      <ID>Lot Size</ID>
+      <Name>Lot Size</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="598498ea-565e-488d-b43f-c7324b4973ae">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3a921f29-dd0b-40fc-b975-e5b088a2fba3">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>LotSize</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9f85067d-ca87-4e5c-88b5-350af5c63862">
+      <ID>Sq Ft</ID>
+      <Name>Sq Ft</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7c577046-4dd5-4f82-9d85-f25a4dac3ec1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5e717ac8-059b-4e9a-9ad8-4bc3778e59e5">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>SqFt</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="86720e5b-9bc1-4158-87dd-7620d1c82596">
+      <ID>Bedrooms</ID>
+      <Name>Bedrooms</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e87d250f-d580-4173-8255-b8796089396e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ae65aafd-3f49-4e3a-bd67-5f58117a9453">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>Bedrooms</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a4df0f06-5044-44fc-8b7c-5a15a01ebd49">
+      <ID>Bathrooms</ID>
+      <Name>Bathrooms</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7ee2ec82-f5b8-4627-8cd6-964daf722919">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="93ca6b47-b1f5-4a81-a30d-b500a0f0927f">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>Bathrooms</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ea1e3741-f262-4a69-9f6b-89ef5238724e">
+      <ID>Stories</ID>
+      <Name>Stories</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="28e6bf78-9926-472c-b569-f3d98f97e5fa">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="00302a06-84a2-48f9-a768-020dd284ac07">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>Stories</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8d1088dc-793b-41d8-8224-071bf42fce30">
+      <ID>Year Built</ID>
+      <Name>Year Built</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b888b947-ff55-46d3-8864-8f1f6559b39b">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7fa27de3-51f3-47dc-b6be-f10096fec326">
+            <TableID>dbo_DimProperty</TableID>
+            <ColumnID>YearBuilt</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
   </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="8f87a3c4-e2ac-4a35-aa98-0e8763284676">
+      <ID>Hierarchy</ID>
+      <Name>Property Location Drilldown</Name>
+      <Levels>
+        <Level dwd:design-time-name="1b1bfbc2-6149-4707-808a-861ca957b33e">
+          <ID>City</ID>
+          <Name>City</Name>
+          <SourceAttributeID>City</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="b86832d7-2b9f-45a0-8994-125614032a38">
+          <ID>Zip Code</ID>
+          <Name>Zip Code</Name>
+          <SourceAttributeID>Zip Code</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="35fc3c3a-3eb5-4638-b803-b9c89c05a9c4">
+          <ID>Address</ID>
+          <Name>Address</Name>
+          <SourceAttributeID>Address</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="0dafdbde-a357-4006-abe1-bc92b0beafbc">
+          <ID>Property ID</ID>
+          <Name>Property ID</Name>
+          <SourceAttributeID>Property SK</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>
