@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL For Redwood1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{1A89292E-1EB7-4E95-924B-17316A37DF93}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{C0017A64-6104-4BA4-B6B9-39F386E1EBAA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -63,7 +63,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{DD815890-8547-4FF6-99B3-EC744CA4E960}"
-              SQLTask:SqlStatementSource="--Cretaed by Stef Tudor, Michael Atkins, Miguel Gerov&#xA;--Build RedwoodDW1&#xA;USE master&#xA;GO&#xA;-- Check if RedwoodDW1 exists, if it does not create the database RedwoodDW1&#xA;IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'RedwoodDW1')&#xA;CREATE DATABASE RedwoodDW1&#xA;GO&#xA;USE RedwoodDW1&#xA;-- Check if tables exists and delete if they do&#xA;-- Check for fact table&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'FactDaysOnMarket'&#xA;)&#xA;DROP TABLE FactDaysOnMarket;&#xA;-- Check for Dimension Tables&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'DimDate'&#xA;)&#xA;DROP TABLE DimDAte;&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'DimAgent'&#xA;)&#xA;DROP TABLE DimAgent;&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'DimProperty'&#xA;)&#xA;DROP TABLE DimProperty;&#xA;--&#xA;-- Create tables&#xA;CREATE TABLE DimProperty (&#xA;&#x9;Property_SK INT IDENTITY (1,1) CONSTRAINT pk_propertySK PRIMARY KEY,&#xA;&#x9;PropertyID_AK INT NOT NULL,&#xA;&#x9;SaleStatus NVARCHAR(10) NOT NULL,&#xA;&#x9;City NVARCHAR(30) NOT NULL,&#xA;&#x9;ZipCode NVARCHAR(20) NOT NULL,&#xA;&#x9;Address NVARCHAR(30) NOT NULL,&#xA;&#x9;LotSize NUMERIC(4,2) NOT NULL,&#xA;&#x9;SqFt INT NOT NULL,&#xA;&#x9;Bedrooms INT NOT NULL,&#xA;&#x9;Bathrooms INT NOT NULL,&#xA;&#x9;Stories INT NOT NULL,&#xA;&#x9;YearBuilt NUMERIC(4,0) NOT NULL,&#xA;&#x9;EndListDate DATETIME NOT NULL,&#xA;&#x9;PropertyStartDate DATETIME,&#xA;&#x9;PropertyEndDate DATETIME&#xA;);&#xA;CREATE TABLE DimAgent (&#xA;&#x9;Agent_SK INT IDENTITY (1,1) CONSTRAINT pk_agentSK PRIMARY KEY,&#xA;&#x9;AgentID_AK INT NOT NULL,&#xA;&#x9;Title NVARCHAR(20) NOT NULL,&#xA;&#x9;Gender NCHAR(1) NOT NULL,&#xA;&#x9;DOB DATETIME NOT NULL,&#xA;&#x9;HireDate DATETIME NOT NULL&#xA;);&#xA;CREATE TABLE DimDate (&#xA;&#x9;&#x9;Date_SK INT PRIMARY KEY, &#xA;&#x9;&#x9;Date DATETIME,&#xA;&#x9;&#x9;FullDate CHAR(10),-- Date in MM-dd-yyyy format&#xA;&#x9;&#x9;DayOfMonth INT, -- Field will hold day number of Month&#xA;&#x9;&#x9;DayName VARCHAR(9), -- Contains name of the day, Sunday, Monday &#xA;&#x9;&#x9;DayOfWeek INT,-- First Day Sunday=1 and Saturday=7&#xA;&#x9;&#x9;DayOfWeekInMonth INT, -- 1st Monday or 2nd Monday in Month&#xA;&#x9;&#x9;DayOfWeekInYear INT,&#xA;&#x9;&#x9;DayOfQuarter INT,&#xA;&#x9;&#x9;DayOfYear INT,&#xA;&#x9;&#x9;WeekOfMonth INT,-- Week Number of Month &#xA;&#x9;&#x9;WeekOfQuarter INT, -- Week Number of the Quarter&#xA;&#x9;&#x9;WeekOfYear INT,-- Week Number of the Year&#xA;&#x9;&#x9;Month INT, -- Number of the Month 1 to 12{}&#xA;&#x9;&#x9;MonthName VARCHAR(9),-- January, February etc&#xA;&#x9;&#x9;MonthOfQuarter INT,-- Month Number belongs to Quarter&#xA;&#x9;&#x9;Quarter CHAR(2),&#xA;&#x9;&#x9;QuarterName VARCHAR(9),-- First,Second..&#xA;&#x9;&#x9;Year INT,-- Year value of Date stored in Row&#xA;&#x9;&#x9;YearName CHAR(7), -- CY 2015,CY 2016&#xA;&#x9;&#x9;MonthYear CHAR(10), -- Jan-2016,Feb-2016&#xA;&#x9;&#x9;MMYYYY INT,&#xA;&#x9;&#x9;FirstDayOfMonth DATE,&#xA;&#x9;&#x9;LastDayOfMonth DATE,&#xA;&#x9;&#x9;FirstDayOfQuarter DATE,&#xA;&#x9;&#x9;LastDayOfQuarter DATE,&#xA;&#x9;&#x9;FirstDayOfYear DATE,&#xA;&#x9;&#x9;LastDayOfYear DATE,&#xA;&#x9;&#x9;IsHoliday BIT,-- Flag 1=National Holiday, 0-No National Holiday&#xA;&#x9;&#x9;IsWeekday BIT,-- 0=Week End ,1=Week Day&#xA;&#x9;&#x9;Holiday VARCHAR(50),--Name of Holiday in US&#xA;&#x9;&#x9;Season VARCHAR(10)--Name of Season&#xA;&#x9;);&#xA;&#xA;CREATE TABLE FactDaysOnMarket (&#xA;&#x9;FactID INT IDENTITY (1,1) CONSTRAINT pk_FactID PRIMARY KEY,&#xA;&#x9;Property_SK INT CONSTRAINT fk_Property_DimProperty FOREIGN KEY REFERENCES DimProperty(Property_SK),&#xA;&#x9;Agent_SK INT CONSTRAINT fk_Agent_DimAgent FOREIGN KEY REFERENCES DimAgent(Agent_SK),&#xA;&#x9;ContactDate INT CONSTRAINT fk_ContactDate_DimDate FOREIGN KEY REFERENCES DimDate(Date_SK),&#xA;&#x9;BeginListDate INT CONSTRAINT fk_ListDate_DimDate FOREIGN KEY REFERENCES DimDate(Date_SK),&#xA;&#x9;AskingPrice MONEY NOT NULL,&#xA;&#x9;BidPrice MONEY&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Build RedwoodDW1&#xA;USE master&#xA;GO&#xA;-- Check if RedwoodDW1 exists, if it does not create the database RedwoodDW1&#xA;IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'RedwoodDW1')&#xA;CREATE DATABASE RedwoodDW1&#xA;GO&#xA;USE RedwoodDW1&#xA;-- Check if tables exists and delete if they do&#xA;-- Check for fact table&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'FactDaysOnMarket'&#xA;)&#xA;DROP TABLE FactDaysOnMarket;&#xA;-- Check for Dimension Tables&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'DimDate'&#xA;)&#xA;DROP TABLE DimDAte;&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'DimAgent'&#xA;)&#xA;DROP TABLE DimAgent;&#xA;IF EXISTS(&#xA;&#x9;SELECT * FROM sys.tables&#xA;&#x9;WHERE name = N'DimProperty'&#xA;)&#xA;DROP TABLE DimProperty;&#xA;--&#xA;-- Create tables&#xA;CREATE TABLE DimProperty (&#xA;&#x9;Property_SK INT IDENTITY (1,1) CONSTRAINT pk_propertySK PRIMARY KEY,&#xA;&#x9;PropertyID_AK INT NOT NULL,&#xA;&#x9;SaleStatus NVARCHAR(10) NOT NULL,&#xA;&#x9;City NVARCHAR(30) NOT NULL,&#xA;&#x9;ZipCode NVARCHAR(20) NOT NULL,&#xA;&#x9;Address NVARCHAR(30) NOT NULL,&#xA;&#x9;LotSize NUMERIC(4,2) NOT NULL,&#xA;&#x9;SqFt INT NOT NULL,&#xA;&#x9;Bedrooms INT NOT NULL,&#xA;&#x9;Bathrooms INT NOT NULL,&#xA;&#x9;Stories INT NOT NULL,&#xA;&#x9;YearBuilt NUMERIC(4,0) NOT NULL,&#xA;&#x9;EndListDate DATETIME NOT NULL,&#xA;&#x9;PropertyStartDate DATETIME,&#xA;&#x9;PropertyEndDate DATETIME&#xA;);&#xA;CREATE TABLE DimAgent (&#xA;&#x9;Agent_SK INT IDENTITY (1,1) CONSTRAINT pk_agentSK PRIMARY KEY,&#xA;&#x9;AgentID_AK INT NOT NULL,&#xA;&#x9;Title NVARCHAR(20) NOT NULL,&#xA;&#x9;Gender NCHAR(1) NOT NULL,&#xA;&#x9;DOB DATETIME NOT NULL,&#xA;&#x9;HireDate DATETIME NOT NULL&#xA;);&#xA;CREATE TABLE DimDate (&#xA;&#x9;&#x9;Date_SK INT PRIMARY KEY, &#xA;&#x9;&#x9;Date DATETIME,&#xA;&#x9;&#x9;FullDate CHAR(10),-- Date in MM-dd-yyyy format&#xA;&#x9;&#x9;DayOfMonth INT, -- Field will hold day number of Month&#xA;&#x9;&#x9;DayName VARCHAR(9), -- Contains name of the day, Sunday, Monday &#xA;&#x9;&#x9;DayOfWeek INT,-- First Day Sunday=1 and Saturday=7&#xA;&#x9;&#x9;DayOfWeekInMonth INT, -- 1st Monday or 2nd Monday in Month&#xA;&#x9;&#x9;DayOfWeekInYear INT,&#xA;&#x9;&#x9;DayOfQuarter INT,&#xA;&#x9;&#x9;DayOfYear INT,&#xA;&#x9;&#x9;WeekOfMonth INT,-- Week Number of Month &#xA;&#x9;&#x9;WeekOfQuarter INT, -- Week Number of the Quarter&#xA;&#x9;&#x9;WeekOfYear INT,-- Week Number of the Year&#xA;&#x9;&#x9;Month INT, -- Number of the Month 1 to 12{}&#xA;&#x9;&#x9;MonthName VARCHAR(9),-- January, February etc&#xA;&#x9;&#x9;MonthOfQuarter INT,-- Month Number belongs to Quarter&#xA;&#x9;&#x9;Quarter CHAR(2),&#xA;&#x9;&#x9;QuarterName VARCHAR(9),-- First,Second..&#xA;&#x9;&#x9;Year INT,-- Year value of Date stored in Row&#xA;&#x9;&#x9;YearName CHAR(7), -- CY 2015,CY 2016&#xA;&#x9;&#x9;MonthYear CHAR(10), -- Jan-2016,Feb-2016&#xA;&#x9;&#x9;MMYYYY INT,&#xA;&#x9;&#x9;FirstDayOfMonth DATE,&#xA;&#x9;&#x9;LastDayOfMonth DATE,&#xA;&#x9;&#x9;FirstDayOfQuarter DATE,&#xA;&#x9;&#x9;LastDayOfQuarter DATE,&#xA;&#x9;&#x9;FirstDayOfYear DATE,&#xA;&#x9;&#x9;LastDayOfYear DATE,&#xA;&#x9;&#x9;IsHoliday BIT,-- Flag 1=National Holiday, 0-No National Holiday&#xA;&#x9;&#x9;IsWeekday BIT,-- 0=Week End ,1=Week Day&#xA;&#x9;&#x9;Holiday VARCHAR(50),--Name of Holiday in US&#xA;&#x9;&#x9;Season VARCHAR(10)--Name of Season&#xA;&#x9;);&#xA;&#xA;CREATE TABLE FactDaysOnMarket (&#xA;&#x9;FactID INT IDENTITY (1,1) CONSTRAINT pk_FactID PRIMARY KEY,&#xA;&#x9;Property_SK INT CONSTRAINT fk_Property_DimProperty FOREIGN KEY REFERENCES DimProperty(Property_SK),&#xA;&#x9;Agent_SK INT CONSTRAINT fk_Agent_DimAgent FOREIGN KEY REFERENCES DimAgent(Agent_SK),&#xA;&#x9;ContactDate INT CONSTRAINT fk_ContactDate_DimDate FOREIGN KEY REFERENCES DimDate(Date_SK),&#xA;&#x9;BeginListDate INT CONSTRAINT fk_ListDate_DimDate FOREIGN KEY REFERENCES DimDate(Date_SK),&#xA;&#x9;AskingPrice MONEY NOT NULL,&#xA;&#x9;BidPrice MONEY&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -3078,26 +3078,26 @@ WHERE Redwood.dbo.CustAgentList.BidPrice IS NOT NULL;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="161,42"
+          Size="160.8,41.6"
           Id="Package\ETL Process\Execute Build DM"
           TopLeft="34.7591901100761,16.4033624721646" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="231,114"
-          Size="231,157"
+          PanelSize="231.2,113.6"
+          Size="231.2,156.8"
           Id="Package\ETL Process"
           TopLeft="342.857148695965,20.9747902101299" />
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load Dim Tables\Load DimAgent"
           TopLeft="46.7102104765335,201.673955217966" />
         <NodeLayout
-          Size="145,42"
+          Size="144.8,41.6"
           Id="Package\Load Dim Tables\Load DimDate"
           TopLeft="53.8449049796725,22.0168109022623" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\Load Dim Tables\Load DimProperty"
           TopLeft="44.2612308429909,104.396643570444" />
         <EdgeLayout
@@ -3151,19 +3151,19 @@ WHERE Redwood.dbo.CustAgentList.BidPrice IS NOT NULL;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="270,299"
-          Size="270,342"
+          PanelSize="270.4,299.2"
+          Size="270.4,342.4"
           Id="Package\Load Dim Tables"
           TopLeft="328.979597439224,243.83193619276" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Load Fact Table\Load FactDaysOnMarket"
           TopLeft="34.3347006339027,24.6722735651518" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="254,122"
-          Size="254,165"
+          PanelSize="254.4,121.6"
+          Size="254.4,164.8"
           Id="Package\Load Fact Table"
           TopLeft="362.448985764306,660.705888493605" />
         <EdgeLayout
